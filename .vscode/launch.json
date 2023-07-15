@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    {
+    "command": "npm run start:dev",
+    "name": "Debugg app",
+    "request": "launch",
+    "type": "node-terminal",
+    "skipFiles": [
+            "<node_internals>/**",
+            "${workspaceFolder}/node_modules/**",
+            ]
+        },
+        ]
+    }

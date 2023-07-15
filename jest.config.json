@@ -1,0 +1,28 @@
+{ 
+  "displayName": "Unit", 
+  "roots": [ 
+    "src/" 
+  ], 
+  "testEnvironment": "node", 
+  "coveragePathIgnorePatterns": [ 
+    "/node_modules/" 
+  ], 
+  "moduleFileExtensions": [ 
+    "js", 
+    "ts", 
+    "tsx" 
+  ], 
+  "transform": { 
+    "^.+\\.(ts|tsx)$": "ts-jest" 
+  }, 
+  "collectCoverage": true, 
+  "coverageReporters": [ 
+    "json", 
+    "json-summary", 
+    "lcov", 
+    "text", 
+    "clover" 
+  ], 
+  "coverageDirectory": "reports/coverage", 
+  "setupFiles": ["./jest-setup-file.ts"] 
+}

@@ -1,0 +1,38 @@
+version: '3.4'
+services:
+    postgres:
+        image: postgres:15.2
+        environment: 
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: root
+          POSTGRES_DB: postapp
+          DB_HOST: postgres
+        ports: 
+          - "5432:5432"
+        networks: 
+          - app
+
+    postapp: 
+        build:
+          dockerfile: Dockerfile
+          context: .
+        working_dir: /app
+        networks: 
+          - app
+        ports: 
+          - 3000:3000
+        depends_on: 
+          - postgres
+        command: npm run start:dev
+        volumes: 
+          - .:/app:delegated
+          - /app/node_modules
+        environment:
+          DATABASE_URL: postgres://postgres:root@postgres:5432/postapp
+          NODE_ENV: dev
+          PORT: 3000
+
+networks:
+  app:
+
+                
